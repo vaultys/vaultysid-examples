@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@vaultys/id": ["./node_modules/@vaultys/id"]
+    }
+  }
+}
