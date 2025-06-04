@@ -5,7 +5,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import IdentityInfo from "../components/IdentityInfo";
 import FileSelector from "../components/FileSelector";
 import TabNavigation from "../components/TabNavigation";
-import QRCodeModal from "../components/QRCodeModal";
+import QRCodeModal from "../components/QRcodeModal";
 import ResultDisplay from "../components/ResultDisplay";
 import { initVaultysId, resetIdentity, setupPeerJsChannel } from "../lib/vaultysIdHelper";
 import { saveAs } from "file-saver";
@@ -214,7 +214,11 @@ export default function DecryptPage() {
             </label>
           </div>
         </div>
-        <button onClick={handleDecryptFile} disabled={!file || loading} className={`w-full py-3 rounded-lg font-semibold ${!file || loading ? "bg-gray-300 cursor-not-allowed text-gray-500" : "cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white"} transition-colors`}>
+        <button
+          onClick={handleDecryptFile}
+          disabled={!file || loading}
+          className={`w-full py-3 rounded-lg font-semibold ${!file || loading ? "bg-gray-300 cursor-not-allowed text-gray-500" : "cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white"} transition-colors`}
+        >
           Decrypt File
         </button>
 
@@ -224,7 +228,13 @@ export default function DecryptPage() {
       </div>
 
       <QRCodeModal isOpen={isChannelOpen} channelInfo={channelInfo} processingStatus={processingStatus} onCancel={cancelChannelOperation} actionType="decrypt" />
-      <ConfirmationModal isOpen={isResetModalOpen} title="Reset Identity" message="Are you sure you want to reset your VaultysID? This action cannot be undone." onConfirm={confirmResetIdentity} onCancel={cancelResetIdentity} />
+      <ConfirmationModal
+        isOpen={isResetModalOpen}
+        title="Reset Identity"
+        message="Are you sure you want to reset your VaultysID? This action cannot be undone."
+        onConfirm={confirmResetIdentity}
+        onCancel={cancelResetIdentity}
+      />
     </Layout>
   );
 }

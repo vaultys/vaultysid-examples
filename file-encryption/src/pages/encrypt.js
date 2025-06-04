@@ -5,7 +5,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import IdentityInfo from "../components/IdentityInfo";
 import FileSelector from "../components/FileSelector";
 import TabNavigation from "../components/TabNavigation";
-import QRCodeModal from "../components/QRCodeModal";
+import QRCodeModal from "../components/QRcodeModal";
 import ResultDisplay from "../components/ResultDisplay";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { initVaultysId, resetIdentity, setupPeerJsChannel } from "../lib/vaultysIdHelper";
@@ -207,7 +207,11 @@ export default function EncryptPage() {
             </label>
           </div>
         </div>
-        <button onClick={handleEncryptFile} disabled={!file || loading} className={`w-full py-3 rounded-lg font-semibold ${!file || loading ? "bg-gray-300 cursor-not-allowed text-gray-500" : "cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white"} transition-colors`}>
+        <button
+          onClick={handleEncryptFile}
+          disabled={!file || loading}
+          className={`w-full py-3 rounded-lg font-semibold ${!file || loading ? "bg-gray-300 cursor-not-allowed text-gray-500" : "cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white"} transition-colors`}
+        >
           Encrypt File
         </button>
 
@@ -217,7 +221,13 @@ export default function EncryptPage() {
       </div>
 
       <QRCodeModal isOpen={isChannelOpen} channelInfo={channelInfo} processingStatus={processingStatus} onCancel={cancelChannelOperation} actionType="encrypt" />
-      <ConfirmationModal isOpen={isResetModalOpen} title="Reset Identity" message="Are you sure you want to reset your VaultysID? This action cannot be undone." onConfirm={confirmResetIdentity} onCancel={cancelResetIdentity} />
+      <ConfirmationModal
+        isOpen={isResetModalOpen}
+        title="Reset Identity"
+        message="Are you sure you want to reset your VaultysID? This action cannot be undone."
+        onConfirm={confirmResetIdentity}
+        onCancel={cancelResetIdentity}
+      />
     </Layout>
   );
 }
